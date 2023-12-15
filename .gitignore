@@ -127,7 +127,7 @@ dist
 .pnp.*
 
 # openai-env
-openai-env/
+PYTHON/openai-env/
 
 # local bat files
 
