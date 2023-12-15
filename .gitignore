@@ -125,3 +125,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# openai-env
+openai-env/
+
+# local bat files
+
+Run.bat
