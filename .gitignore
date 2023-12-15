@@ -126,9 +126,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# openai-env
-PYTHON/openai-env/
-
 # local bat files
 
 Run.bat
