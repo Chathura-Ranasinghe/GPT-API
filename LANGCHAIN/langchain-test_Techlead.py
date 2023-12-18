@@ -1,5 +1,7 @@
 import os
 import sys
+from dotenv import load_dotenv
+from openai import OpenAI
 
 import openai
 from langchain.chains import ConversationalRetrievalChain, RetrievalQA
@@ -10,6 +12,15 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve the API key from the environment variable
+api_key = os.getenv("OPENAI_API_KEY")
+
+# Create an instance of the OpenAI client
+client = OpenAI(api_key=api_key)
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
 PERSIST = False

@@ -1,9 +1,17 @@
 import json
 import os
 from datetime import datetime
+from dotenv import load_dotenv
 from openai import OpenAI
 
-client = OpenAI()
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve the API key from the environment variable
+api_key = os.getenv("OPENAI_API_KEY")
+
+# Create an instance of the OpenAI client
+client = OpenAI(api_key=api_key)
 
 # File path for storing conversation history
 dynamic_file_path = "dynamic_data.json"

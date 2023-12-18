@@ -1,6 +1,16 @@
 import os
 import sys
-from datetime import datetime
+from dotenv import load_dotenv
+from openai import OpenAI
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve the API key from the environment variable
+api_key = os.getenv("OPENAI_API_KEY")
+
+# Create an instance of the OpenAI client
+client = OpenAI(api_key=api_key)
 
 from langchain.document_loaders import TextLoader
 from langchain.indexes import VectorstoreIndexCreator
