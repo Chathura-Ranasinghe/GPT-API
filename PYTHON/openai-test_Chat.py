@@ -14,8 +14,8 @@ api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
 # File path for storing conversation history
-dynamic_file_path = "dynamic_data.json"
-static_file_path = "static_data.json"
+dynamic_file_path = "data/dynamic_data.json"
+static_file_path = "data/static_data.json"
 
 # Set the maximum number of messages to keep in the conversation history
 max_history_length = 50
