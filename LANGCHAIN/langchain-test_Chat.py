@@ -12,8 +12,6 @@ sys.stderr = open(os.devnull, 'w')
 loader = TextLoader('data.txt')
 index = VectorstoreIndexCreator().from_loaders([loader])
 
-log_file = open("chat_log.txt", "a")
-
 print("\ngpt  > Welcome to the chat! Type 'goodbye' to exit.")
 
 conversation_history = []
@@ -26,9 +24,6 @@ while True:
         # Append the user's query to the conversation history
         conversation_history.append(f"{query}")
 
-        # Pass the entire conversation history to the model
-        result = index.query("\n".join(conversation_history), llm=ChatOpenAI())
-
         try:
             result = index.query("\n".join(conversation_history), llm=ChatOpenAI())
             print("gpt  > ",result)
@@ -36,12 +31,6 @@ while True:
         except Exception as e:
             print("gpt  > An error occurred:", str(e))
 
-
-        # Append the model's response to the conversation history
-        conversation_history.append(f"{result}")
-
-        log_file.write(f"{datetime.now()} - User: {query}, GPT: {result}\n")
-        
     else:
         print("gpt  > No query provided.")
 
